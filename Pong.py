@@ -1,5 +1,8 @@
 import turtle
 import os
+import time
+
+furtherPlay = True
 
 win = turtle.Screen()
 win.title('Pong')
@@ -70,6 +73,13 @@ def paddleBDown():
         paddleB.sety(y-10)
 
 
+def endGame(win):
+    ball.hideturtle()
+    pen.goto(0, 0)
+    pen.write('Player {} Won!'.format(win), align='center', font=('Courier', 24, 'normal'))
+    time.sleep(2.5)
+
+
 # Keyboard binding
 win.listen()
 win.onkeypress(paddleAUp, 'w')
@@ -78,7 +88,7 @@ win.onkeypress(paddleBUp, 'Up')
 win.onkeypress(paddleBDown, 'Down')
 
 # Main Loop
-while True:
+while furtherPlay == True:
     win.update()
 
     # Moving the ball
@@ -110,3 +120,10 @@ while True:
         ball.setx(-340)
         ball.dx *= -1
         os.system('aplay bounce.wav&')
+
+    if scoreA == 1:
+        endGame('A')
+        furtherPlay = False
+    if scoreB == 11:
+        endGame('B')
+        furtherPlay = False
