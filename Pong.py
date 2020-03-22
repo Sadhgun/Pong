@@ -51,19 +51,23 @@ scoreB = 0
 # Functions
 def paddleAUp():
     y = paddleA.ycor()
-    paddleA.sety(y+10)
+    if y <= 240:
+        paddleA.sety(y+10)
 
 def paddleADown():
     y = paddleA.ycor()
-    paddleA.sety(y-10)
+    if y >= -240:
+        paddleA.sety(y-10)
 
 def paddleBUp():
     y = paddleB.ycor()
-    paddleB.sety(y+10)
+    if y <= 240:
+        paddleB.sety(y+10)
 
 def paddleBDown():
     y = paddleB.ycor()
-    paddleB.sety(y-10)
+    if y >= -240:
+        paddleB.sety(y-10)
 
 
 # Keyboard binding
