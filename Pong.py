@@ -1,6 +1,7 @@
 import turtle
 import os
 import time
+import random
 
 furtherPlay = True
 
@@ -35,8 +36,9 @@ ball.shape('square')
 ball.color('white')
 ball.penup()
 ball.goto(0, 0)
-ball.dx = 0.05
-ball.dy = 0.05
+ball.dx = 0.025 + random.random()/10
+ball.dy = 0.025 + random.random()/10
+print(ball.dx, ball.dy)
 
 # Pen
 pen = turtle.Turtle()
