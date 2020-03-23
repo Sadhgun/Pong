@@ -121,7 +121,7 @@ while furtherPlay == True:
         ball.dx *= -1
         os.system('aplay bounce.wav&')
 
-    if scoreA == 1:
+    if scoreA == 11:
         endGame('A')
         furtherPlay = False
     if scoreB == 11:
